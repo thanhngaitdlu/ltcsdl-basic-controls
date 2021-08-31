@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Demo18_08_2021.IO;
 
 namespace Demo18_08_2021
 {
@@ -14,9 +15,13 @@ namespace Demo18_08_2021
 		[STAThread]
 		static void Main()
 		{
+			//IDataSource dataSource = new TextDataSource("Data\\data.txt");
+			IDataSource dataSource = new JsonDataSource("Data\\data.json");
+			RestaurantContext context = new RestaurantContext(dataSource);
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new frmMain());
+			Application.Run(new frmMain(context));
 		}
 	}
 }

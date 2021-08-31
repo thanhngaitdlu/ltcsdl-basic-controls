@@ -32,7 +32,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
-			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.btnDelete = new System.Windows.Forms.Button();
 			this.btnUpdate = new System.Windows.Forms.Button();
 			this.btnAdd = new System.Windows.Forms.Button();
@@ -49,9 +48,27 @@
 			this.ctmsListView = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
 			this.xemDanhSáchHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.tabPage2 = new System.Windows.Forms.TabPage();
+			this.btnAddFood = new System.Windows.Forms.Button();
+			this.txtSearch = new System.Windows.Forms.TextBox();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.lvFoodList = new System.Windows.Forms.ListView();
+			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.pnFoodCatList = new System.Windows.Forms.Panel();
+			this.btnSave = new System.Windows.Forms.Button();
 			this.tabControl1.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.ctmsListView.SuspendLayout();
+			this.tabPage2.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -92,16 +109,6 @@
 			this.tabPage1.TabIndex = 0;
 			this.tabPage1.Text = "Danh sách bàn ăn";
 			this.tabPage1.UseVisualStyleBackColor = true;
-			// 
-			// tabPage2
-			// 
-			this.tabPage2.Location = new System.Drawing.Point(4, 22);
-			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage2.Size = new System.Drawing.Size(1003, 677);
-			this.tabPage2.TabIndex = 1;
-			this.tabPage2.Text = "Món ăn/uống";
-			this.tabPage2.UseVisualStyleBackColor = true;
 			// 
 			// btnDelete
 			// 
@@ -242,6 +249,145 @@
 			this.xemDanhSáchHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
 			this.xemDanhSáchHóaĐơnToolStripMenuItem.Text = "Xem danh sách hóa đơn";
 			// 
+			// tabPage2
+			// 
+			this.tabPage2.Controls.Add(this.btnSave);
+			this.tabPage2.Controls.Add(this.btnAddFood);
+			this.tabPage2.Controls.Add(this.txtSearch);
+			this.tabPage2.Controls.Add(this.label5);
+			this.tabPage2.Controls.Add(this.label4);
+			this.tabPage2.Controls.Add(this.lvFoodList);
+			this.tabPage2.Controls.Add(this.groupBox1);
+			this.tabPage2.Location = new System.Drawing.Point(4, 22);
+			this.tabPage2.Name = "tabPage2";
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage2.Size = new System.Drawing.Size(1003, 699);
+			this.tabPage2.TabIndex = 1;
+			this.tabPage2.Text = "Món ăn/uống";
+			this.tabPage2.UseVisualStyleBackColor = true;
+			// 
+			// btnAddFood
+			// 
+			this.btnAddFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnAddFood.Location = new System.Drawing.Point(956, 6);
+			this.btnAddFood.Name = "btnAddFood";
+			this.btnAddFood.Size = new System.Drawing.Size(30, 26);
+			this.btnAddFood.TabIndex = 13;
+			this.btnAddFood.Text = "+";
+			this.btnAddFood.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.btnAddFood.UseVisualStyleBackColor = true;
+			this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
+			// 
+			// txtSearch
+			// 
+			this.txtSearch.Location = new System.Drawing.Point(716, 6);
+			this.txtSearch.Name = "txtSearch";
+			this.txtSearch.Size = new System.Drawing.Size(236, 20);
+			this.txtSearch.TabIndex = 12;
+			this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(598, 9);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(94, 13);
+			this.label5.TabIndex = 10;
+			this.label5.Text = "Tìm kiếm theo tên:";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(293, 6);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(97, 13);
+			this.label4.TabIndex = 11;
+			this.label4.Text = "Danh sách món ăn";
+			// 
+			// lvFoodList
+			// 
+			this.lvFoodList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10,
+            this.columnHeader11,
+            this.columnHeader5});
+			this.lvFoodList.FullRowSelect = true;
+			this.lvFoodList.GridLines = true;
+			this.lvFoodList.Location = new System.Drawing.Point(288, 32);
+			this.lvFoodList.MultiSelect = false;
+			this.lvFoodList.Name = "lvFoodList";
+			this.lvFoodList.Size = new System.Drawing.Size(698, 476);
+			this.lvFoodList.TabIndex = 9;
+			this.lvFoodList.UseCompatibleStateImageBehavior = false;
+			this.lvFoodList.View = System.Windows.Forms.View.Details;
+			this.lvFoodList.DoubleClick += new System.EventHandler(this.lvFoodList_DoubleClick);
+			// 
+			// columnHeader6
+			// 
+			this.columnHeader6.Text = "Mã ";
+			this.columnHeader6.Width = 44;
+			// 
+			// columnHeader7
+			// 
+			this.columnHeader7.Text = "Tên món ăn";
+			this.columnHeader7.Width = 124;
+			// 
+			// columnHeader8
+			// 
+			this.columnHeader8.Text = "Đơn vị tính";
+			this.columnHeader8.Width = 67;
+			// 
+			// columnHeader9
+			// 
+			this.columnHeader9.Text = "Đơn giá";
+			this.columnHeader9.Width = 59;
+			// 
+			// columnHeader10
+			// 
+			this.columnHeader10.Text = "Nhóm món ăn/uống";
+			this.columnHeader10.Width = 122;
+			// 
+			// columnHeader11
+			// 
+			this.columnHeader11.Text = "Mô tả";
+			this.columnHeader11.Width = 195;
+			// 
+			// columnHeader5
+			// 
+			this.columnHeader5.Text = "Hình ảnh";
+			this.columnHeader5.Width = 73;
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.pnFoodCatList);
+			this.groupBox1.Location = new System.Drawing.Point(22, 6);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(260, 502);
+			this.groupBox1.TabIndex = 8;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Nhóm món ăn";
+			// 
+			// pnFoodCatList
+			// 
+			this.pnFoodCatList.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.pnFoodCatList.Location = new System.Drawing.Point(3, 16);
+			this.pnFoodCatList.Name = "pnFoodCatList";
+			this.pnFoodCatList.Size = new System.Drawing.Size(254, 483);
+			this.pnFoodCatList.TabIndex = 1;
+			// 
+			// btnSave
+			// 
+			this.btnSave.Location = new System.Drawing.Point(877, 533);
+			this.btnSave.Name = "btnSave";
+			this.btnSave.Size = new System.Drawing.Size(75, 23);
+			this.btnSave.TabIndex = 14;
+			this.btnSave.Text = "Lưu";
+			this.btnSave.UseVisualStyleBackColor = true;
+			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+			// 
 			// AdminForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,6 +402,9 @@
 			this.tabPage1.ResumeLayout(false);
 			this.tabPage1.PerformLayout();
 			this.ctmsListView.ResumeLayout(false);
+			this.tabPage2.ResumeLayout(false);
+			this.tabPage2.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -281,5 +430,20 @@
 		private System.Windows.Forms.ContextMenuStrip ctmsListView;
 		private System.Windows.Forms.ToolStripMenuItem tsmiDelete;
 		private System.Windows.Forms.ToolStripMenuItem xemDanhSáchHóaĐơnToolStripMenuItem;
+		private System.Windows.Forms.Button btnAddFood;
+		private System.Windows.Forms.TextBox txtSearch;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.ListView lvFoodList;
+		private System.Windows.Forms.ColumnHeader columnHeader6;
+		private System.Windows.Forms.ColumnHeader columnHeader7;
+		private System.Windows.Forms.ColumnHeader columnHeader8;
+		private System.Windows.Forms.ColumnHeader columnHeader9;
+		private System.Windows.Forms.ColumnHeader columnHeader10;
+		private System.Windows.Forms.ColumnHeader columnHeader11;
+		private System.Windows.Forms.ColumnHeader columnHeader5;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.Panel pnFoodCatList;
+		private System.Windows.Forms.Button btnSave;
 	}
 }

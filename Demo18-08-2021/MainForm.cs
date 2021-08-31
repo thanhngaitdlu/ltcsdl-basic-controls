@@ -14,10 +14,10 @@ namespace Demo18_08_2021
 {
 	public partial class frmMain : Form
 	{
-		private List<DiningTable> tableList;
-
-		public frmMain()
+		private RestaurantContext _context;
+		public frmMain(RestaurantContext context)
 		{
+			_context = context;
 			InitializeComponent();
 		}
 
@@ -29,19 +29,6 @@ namespace Demo18_08_2021
 				Application.Exit();
 			}
 
-			tableList = new List<DiningTable>();
-			Random r = new Random();
-			for (int i = 1; i < 27; i++)
-			{
-				DiningTable table = new DiningTable();
-				table.TableName = $"Bàn {i}";
-				table.TableId = i;
-				table.Status = r.Next(0, 2); // 0- Trống, 1- Có người
-				table.Floor = r.Next(1, 4);
-
-				tableList.Add(table);
-			}
-
 			LoadTableListFLP();
 			//LoadTableListLv();
 			//LoadTableToLvDetail();
@@ -49,8 +36,12 @@ namespace Demo18_08_2021
 
 		private void LoadTableListFLP()
 		{
+			flpFloorOne.Controls.Clear();
+			flpFloorTwo.Controls.Clear();
+			flpFloorThree.Controls.Clear();
+
 			var floors = new[] {flpFloorOne, flpFloorTwo, flpFloorThree};
-			foreach (var table in tableList)
+			foreach (var table in WorkingContext.TableList)
 			{
 				Button btn = new Button();
 				btn.Text = table.TableName + "\r\n" + (table.Status == 1 ? "Có người" : "Trống");
@@ -65,8 +56,10 @@ namespace Demo18_08_2021
 
 		private void tsmiAdmin_Click(object sender, EventArgs e)
 		{
-			AdminForm form = new AdminForm();
+			AdminForm form = new AdminForm(_context);
 			form.ShowDialog();
+
+			LoadTableListFLP();
 		}
 
 		/*private void LoadTableListLv()
