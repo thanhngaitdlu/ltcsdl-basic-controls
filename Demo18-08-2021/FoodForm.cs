@@ -78,7 +78,7 @@ namespace Demo18_08_2021
 
 			if (_foodId == 0)
 			{
-				int id = _foods.Any() ? WorkingContext.FoodList.Max(f => f.Id) + 1 : 1;
+				int id = _foods.Any() ? _foods.Max(f => f.Id) + 1 : 1;
 				ReturnedFood = new Food(id, name, unit, price, description, link, categoryId);
 				_foods.Add(ReturnedFood);
 			}
